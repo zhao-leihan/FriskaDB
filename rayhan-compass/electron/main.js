@@ -202,7 +202,7 @@ ipcMain.handle('RayhanDB-register', async (event, config) => {
 
     client.connect(port, host, () => {
       // Send registration request as query
-      const registerQuery = `FRISREGISTER user:${username} pass:${password}`;
+      const registerQuery = `RAYREGISTER user:${username} pass:${password}`;
       const registerRequest = {
         id: Date.now().toString(),
         query: registerQuery,
@@ -239,15 +239,10 @@ ipcMain.handle('RayhanDB-register', async (event, config) => {
 
 // Query execution
 ipcMain.handle('RayhanDB-query', async (event, config, query) => {
-  console.log('[ELECTRON] RayhanDB-query CALLED');
-  console.log('[ELECTRON] config:', config);
-  console.log('[ELECTRON] query:', query);
-
   const { host, port, username } = config;
 
   return new Promise((resolve, reject) => {
     const client = new net.Socket();
-    console.log(`[ELECTRON] Connecting to ${host}:${port}...`);
 
     client.connect(port, host, () => {
       const request = {
