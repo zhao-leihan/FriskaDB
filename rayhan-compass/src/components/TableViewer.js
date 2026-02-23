@@ -20,7 +20,7 @@ const TableViewer = ({ selectedTable, executeQuery }) => {
         setError('');
 
         try {
-            const result = await executeQuery(`FRISLECT * FRISFROM ${selectedTable};`);
+            const result = await executeQuery(`RAYLECT * RAYFROM ${selectedTable};`);
             if (result.success) {
                 setTableData(result);
             } else {

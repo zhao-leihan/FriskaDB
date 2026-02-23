@@ -64,7 +64,7 @@ const QueryEditor = ({ executeQuery }) => {
                     className="query-textarea"
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
-                    placeholder="Enter your Friska query here...&#10;&#10;Example:&#10;FRISLECT * FRISFROM users;"
+                    placeholder="Enter your Friska query here...&#10;&#10;Example:&#10;RAYLECT * RAYFROM users;"
                     spellCheck={false}
                 />
             </div>

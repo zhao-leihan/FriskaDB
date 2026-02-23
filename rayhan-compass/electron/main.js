@@ -161,7 +161,7 @@ ipcMain.handle('RayhanDB-connect', async (event, config) => {
       // Send auth request
       const authRequest = {
         id: Date.now().toString(),
-        query: 'FRISSHOW FRISKABLES;',
+        query: 'RAYSHOW RAYTABLES;',
         auth: { username, password }
       };
 

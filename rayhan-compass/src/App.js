@@ -17,7 +17,7 @@ function App() {
     // Define all functions FIRST before using them
     const loadTables = async (config) => {
         try {
-            const result = await window.electron.query(config, 'FRISSHOW FRISKABLES;');
+            const result = await window.electron.query(config, 'RAYSHOW RAYTABLES;');
             if (result.success && result.data) {
                 setTables(result.data);
             }
@@ -36,7 +36,7 @@ function App() {
 
             // Auto-refresh sidebar if CREATE/DROP table query
             const trimmedQuery = query.trim().toUpperCase();
-            if (result.success && (trimmedQuery.startsWith('FRISRATE') || trimmedQuery.startsWith('FRISDROP'))) {
+            if (result.success && (trimmedQuery.startsWith('RAYRATE') || trimmedQuery.startsWith('RAYDROP'))) {
                 setTimeout(() => loadTables(connectionConfig), 500);
             }
 
