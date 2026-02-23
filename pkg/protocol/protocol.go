@@ -2,7 +2,7 @@ package protocol
 
 import (
 	"encoding/json"
-	"friskadb/pkg/core"
+	"RayhanDB/pkg/core"
 )
 
 // Request represents a client request to the server

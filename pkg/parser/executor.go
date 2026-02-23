@@ -2,7 +2,7 @@ package parser
 
 import (
 	"fmt"
-	"friskadb/pkg/core"
+	"RayhanDB/pkg/core"
 	"strings"
 )
 

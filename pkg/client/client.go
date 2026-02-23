@@ -3,8 +3,8 @@ package client
 import (
 	"bufio"
 	"fmt"
-	"friskadb/pkg/core"
-	"friskadb/pkg/protocol"
+	"RayhanDB/pkg/core"
+	"RayhanDB/pkg/protocol"
 	"net"
 	"sync"
 	"sync/atomic"
@@ -12,7 +12,7 @@ import (
 	"github.com/google/uuid"
 )
 
-// Client represents a FriskaDB client connection
+// Client represents a RayhanDB client connection
 type Client struct {
 	conn          net.Conn
 	reader        *bufio.Reader
@@ -23,7 +23,7 @@ type Client struct {
 	requestID     atomic.Uint64
 }
 
-// Connect establishes a connection to FriskaDB server
+// Connect establishes a connection to RayhanDB server
 func Connect(address, username, password string) (*Client, error) {
 	conn, err := net.Dial("tcp", address)
 	if err != nil {

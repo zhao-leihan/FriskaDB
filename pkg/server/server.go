@@ -3,10 +3,10 @@ package server
 import (
 	"bufio"
 	"fmt"
-	"friskadb/pkg/auth"
-	"friskadb/pkg/core"
-	"friskadb/pkg/parser"
-	"friskadb/pkg/protocol"
+	"RayhanDB/pkg/auth"
+	"RayhanDB/pkg/core"
+	"RayhanDB/pkg/parser"
+	"RayhanDB/pkg/protocol"
 	"log"
 	"net"
 	"strings"
@@ -14,7 +14,7 @@ import (
 	"sync/atomic"
 )
 
-// Server represents the FriskaDB TCP server
+// Server represents the RayhanDB TCP server
 type Server struct {
 	host          string
 	port          int
@@ -38,7 +38,7 @@ type Config struct {
 	AdminPassword string
 }
 
-// NewServer creates a new FriskaDB server
+// NewServer creates a new RayhanDB server
 func NewServer(cfg *Config) (*Server, error) {
 	// Initialize storage
 	storage := core.NewStorage(cfg.DataDir)
@@ -76,7 +76,7 @@ func (s *Server) Start() error {
 	s.listener = listener
 	s.running.Store(true)
 
-	log.Printf("🚀 FriskaDB Server started on %s", addr)
+	log.Printf("🚀 RayhanDB Server started on %s", addr)
 	log.Printf("💝 Ready to accept connections!")
 
 	// Accept connections

@@ -2,7 +2,7 @@ package main
 
 import (
 	"flag"
-	"friskadb/pkg/server"
+	"RayhanDB/pkg/server"
 	"log"
 	"os"
 	"os/signal"
@@ -17,7 +17,7 @@ func main() {
 	dbName := flag.String("db", "mydb", "Database name")
 	dataDir := flag.String("dir", getDefaultDataDir(), "Data directory")
 	adminUser := flag.String("user", "admin", "Admin username")
-	adminPass := flag.String("pass", "friska123", "Admin password")
+	adminPass := flag.String("pass", "rayhan123", "Admin password")
 	flag.Parse()
 
 	// Create server config
@@ -60,7 +60,7 @@ func main() {
 func getDefaultDataDir() string {
 	homeDir, err := os.UserHomeDir()
 	if err != nil {
-		return "./friskadb_data"
+		return "./RayhanDB_data"
 	}
-	return filepath.Join(homeDir, ".friskadb")
+	return filepath.Join(homeDir, ".RayhanDB")
 }

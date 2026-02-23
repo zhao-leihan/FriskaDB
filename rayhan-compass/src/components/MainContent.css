@@ -1,0 +1,82 @@
+.main-content {
+    flex: 1;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+}
+
+.welcome-screen {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray-700);
+    padding: 48px;
+}
+
+.welcome-icon {
+    margin-bottom: 24px;
+    color: var(--purple-primary);
+}
+
+.welcome-screen h1 {
+    font-size: 32px;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--purple-primary) 0%, var(--purple-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+}
+
+.welcome-screen p {
+    font-size: 16px;
+    color: var(--gray-700);
+}
+
+.tabs-root {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.tabs-list {
+    display: flex;
+    gap: 4px;
+    padding: 16px 24px 0;
+    background: var(--gray-50);
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.tabs-trigger {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: transparent;
+    border: none;
+    border-radius: 8px 8px 0 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--gray-700);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tabs-trigger:hover {
+    background: var(--gray-100);
+}
+
+.tabs-trigger[data-state='active'] {
+    background: var(--white);
+    color: var(--purple-primary);
+    box-shadow: 0 -2px 0 var(--purple-primary) inset;
+}
+
+.tabs-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}

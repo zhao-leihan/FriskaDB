@@ -1,10 +1,10 @@
-# FriskaDB 💝
+# RayhanDB 💝
 
 **Your Friendly Query Language Database - Now with Server Mode!**
 
-FriskaDB is a lightweight database with a unique query language that uses **FRIS**-prefixed keywords. Built with Go for performance and concurrent access support.
+RayhanDB is a lightweight database with a unique query language that uses **FRIS**-prefixed keywords. Built with Go for performance and concurrent access support.
 
-**✨ NEW: Server Mode** - Use FriskaDB as a database server like MongoDB or PostgreSQL!
+**✨ NEW: Server Mode** - Use RayhanDB as a database server like MongoDB or PostgreSQL!
 
 ## 🚀 Features
 
@@ -23,17 +23,17 @@ FriskaDB is a lightweight database with a unique query language that uses **FRIS
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/friskadb
-cd FriskaDB
+git clone https://github.com/yourusername/RayhanDB
+cd RayhanDB
 
 # Install dependencies
 go get
 
 # Build server
-go build -o friskadb-server.exe cmd/friskadb-server/main.go
+go build -o RayhanDB-server.exe cmd/RayhanDB-server/main.go
 
 # Build REPL client
-go build -o friskadb.exe cmd/friskadb/main.go
+go build -o RayhanDB.exe cmd/RayhanDB/main.go
 
 # Build example client
 go build -o basic_client.exe examples/basic_client/main.go
@@ -46,20 +46,20 @@ go build -o basic_client.exe examples/basic_client/main.go
 ### Starting the Server
 
 ```bash
-# Start with defaults (port 7171, admin/friska123)
-./friskadb-server
+# Start with defaults (port 7171, admin/rayhan123)
+./RayhanDB-server
 
 # Custom configuration
-./friskadb-server -host 0.0.0.0 -port 8080 -user myuser -pass mypass -db production
+./RayhanDB-server -host 0.0.0.0 -port 8080 -user myuser -pass mypass -db production
 ```
 
 **Server Options:**
 - `-host` - Server host (default: `0.0.0.0`)
 - `-port` - Server port (default: `7171`)
 - `-db` - Database name (default: `mydb`)
-- `-dir` - Data directory (default: `~/.friskadb`)
+- `-dir` - Data directory (default: `~/.RayhanDB`)
 - `-user` - Admin username (default: `admin`)
-- `-pass` - Admin password (default: `friska123`)
+- `-pass` - Admin password (default: `rayhan123`)
 
 ### Using Client Library
 
@@ -69,12 +69,12 @@ package main
 import (
     "fmt"
     "log"
-    "friskadb/pkg/client"
+    "RayhanDB/pkg/client"
 )
 
 func main() {
     // Connect to server
-    db, err := client.Connect("localhost:7171", "admin", "friska123")
+    db, err := client.Connect("localhost:7171", "admin", "rayhan123")
     if err != nil {
         log.Fatal(err)
     }
@@ -92,7 +92,7 @@ func main() {
     // Insert data
     msg, err := db.Exec(`
         FRISERT FRISINTO users (name, email, age)
-        FRISVALUES ('Friska', 'friska@db.com', 25);
+        FRISVALUES ('Rayhan', 'rayhan@db.com', 25);
     `)
     fmt.Println(msg) // "✅ Saved successfully! Total rows: 1"
 
@@ -110,7 +110,7 @@ func main() {
 
 ```bash
 # Start interactive REPL
-./friskadb
+./RayhanDB
 
 # REPL commands available:
 # - help: Show help
@@ -128,7 +128,7 @@ friska> FRISRATE FRISKABLE users (
 ✨ Table 'users' created successfully!
 
 friska> FRISERT FRISINTO users (name, age) 
-     -> FRISVALUES ('Friska', 25);
+     -> FRISVALUES ('Rayhan', 25);
 ✅ Saved successfully! Total rows: 1
 
 friska> FRISLECT * FRISFROM users;
@@ -181,7 +181,7 @@ FRISRATE FRISKABLE users (
 ### Insert Data
 ```friska
 FRISERT FRISINTO users (name, age, email, active) 
-FRISVALUES ('Friska', 25, 'friska@example.com', true);
+FRISVALUES ('Rayhan', 25, 'friska@example.com', true);
 ```
 
 ### Select Data
@@ -205,7 +205,7 @@ FRISWHERE age ABOVE 18 FRISAND active FRISXIST;
 
 ### Update Data
 ```friska
-FRISDATE users FRISSET age = 26 FRISWHERE name = 'Friska';
+FRISDATE users FRISSET age = 26 FRISWHERE name = 'Rayhan';
 ```
 
 ### Delete Data
@@ -230,10 +230,10 @@ FRISDROP FRISKABLE old_users;
 ## 🏗️ Architecture
 
 ```
-FriskaDB/
+RayhanDB/
 ├── cmd/
-│   ├── friskadb/           # REPL client
-│   └── friskadb-server/    # TCP server
+│   ├── RayhanDB/           # REPL client
+│   └── RayhanDB-server/    # TCP server
 ├── pkg/
 │   ├── core/               # Database engine
 │   ├── parser/             # Query parser
@@ -269,7 +269,7 @@ FriskaDB/
 ### Development & Prototyping
 ```go
 // Quick database for your Go app
-db, _ := friskadb.Connect("localhost:7171", "admin", "friska123")
+db, _ := RayhanDB.Connect("localhost:7171", "admin", "rayhan123")
 defer db.Close()
 
 // Use Friska queries
@@ -311,7 +311,7 @@ MIT License - use however you'd like!
 
 ## 🙏 Acknowledgments
 
-Built with ❤️ by the FriskaDB team. Special thanks to the Go community!
+Built with ❤️ by the RayhanDB team. Special thanks to the Go community!
 
 ---
 

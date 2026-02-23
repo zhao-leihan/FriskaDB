@@ -2,7 +2,7 @@ package core
 
 import "time"
 
-// DataType represents supported column types in FriskaDB
+// DataType represents supported column types in RayhanDB
 type DataType string
 
 const (

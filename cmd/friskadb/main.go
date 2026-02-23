@@ -3,8 +3,8 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"friskadb/pkg/core"
-	"friskadb/pkg/parser"
+	"RayhanDB/pkg/core"
+	"RayhanDB/pkg/parser"
 	"os"
 	"path/filepath"
 	"strings"
@@ -24,7 +24,7 @@ var (
 func main() {
 	dbName := "mydb"
 	homeDir, _ := os.UserHomeDir()
-	dataDir := filepath.Join(homeDir, ".friskadb")
+	dataDir := filepath.Join(homeDir, ".RayhanDB")
 
 	// Parse simple args
 	if len(os.Args) > 1 {
@@ -180,7 +180,7 @@ func printHelp() {
 
 ➕ INSERT:
    FRISERT FRISINTO table (col1, col2) FRISVALUES (val1, val2)
-   Example: FRISERT FRISINTO users (name, age) FRISVALUES ('Friska', 25)
+   Example: FRISERT FRISINTO users (name, age) FRISVALUES ('Rayhan', 25)
 
 🔍 SELECT:
    FRISLECT columns FRISFROM table [FRISWHERE condition]
@@ -189,7 +189,7 @@ func printHelp() {
 
 ✏️ UPDATE:
    FRISDATE table FRISSET col=val [FRISWHERE condition]
-   Example: FRISDATE users FRISSET age=26 FRISWHERE name='Friska'
+   Example: FRISDATE users FRISSET age=26 FRISWHERE name='Rayhan'
 
 🗑️ DELETE:
    FRISLETE FRISFROM table [FRISWHERE condition]
@@ -214,7 +214,7 @@ func printHelp() {
 
 💡 Special Commands:
    help  - Show this help
-   exit  - Exit FriskaDB
+   exit  - Exit RayhanDB
    save  - Save database to disk
 `
 	colorBlue.Println(help)

@@ -1,0 +1,32 @@
+# Go
+/bin
+/dist
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# React/Electron Build
+/friska-compass/build
+/friska-compass/dist
+/friska-compass/node_modules
+/friska-compass/.env.local
+/friska-compass/.env.development.local
+/friska-compass/.env.test.local
+/friska-compass/.env.production.local
+
+# IDE
+.vscode
+.idea
+*.swp
+.DS_Store
+
+# Logs
+*.log

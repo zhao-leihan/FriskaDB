@@ -5,7 +5,7 @@ import (
 	"sync"
 )
 
-// Database represents the main FriskaDB database
+// Database represents the main RayhanDB database
 type Database struct {
 	Name   string            `json:"name"`
 	Tables map[string]*Table `json:"tables"`
