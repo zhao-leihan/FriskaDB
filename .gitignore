@@ -1,5 +1,6 @@
 # Go
-/bin
+bin/*
+!bin/RayhanDB-server.exe
 /dist
 *.exe
 *.dll
