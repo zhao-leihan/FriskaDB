@@ -82,7 +82,7 @@ func main() {
 
     // Create table
     _, err = db.Exec(`
-        FRISRATE FRISKABLE users (
+        RAYRATE RAYTABLE users (
             name TEXT,
             email TEXT,
             age NUMBER
@@ -91,13 +91,13 @@ func main() {
 
     // Insert data
     msg, err := db.Exec(`
-        FRISERT FRISINTO users (name, email, age)
-        FRISVALUES ('Rayhan', 'rayhan@db.com', 25);
+        RAYERT RAYINTO users (name, email, age)
+        RAYVALUES ('Rayhan', 'rayhan@db.com', 25);
     `)
     fmt.Println(msg) // "✅ Saved successfully! Total rows: 1"
 
     // Query data
-    rows, err := db.Query("FRISLECT * FRISFROM users;")
+    rows, err := db.Query("RAYLECT * RAYFROM users;")
     for _, row := range rows {
         fmt.Printf("User: %v\n", row)
     }
@@ -121,17 +121,17 @@ func main() {
 **Important:** All queries must end with a semicolon `;` for multi-line support!
 
 ```friska
-friska> FRISRATE FRISKABLE users (
+rayhan> RAYRATE RAYTABLE users (
      ->     name TEXT,
      ->     age NUMBER
      -> );
 ✨ Table 'users' created successfully!
 
-friska> FRISERT FRISINTO users (name, age) 
-     -> FRISVALUES ('Rayhan', 25);
+rayhan> RAYERT RAYINTO users (name, age) 
+     -> RAYVALUES ('Rayhan', 25);
 ✅ Saved successfully! Total rows: 1
 
-friska> FRISLECT * FRISFROM users;
+rayhan> RAYLECT * RAYFROM users;
 🎉 Found 1 row(s)! Here they are:
 ...
 ```
@@ -144,25 +144,25 @@ friska> FRISLECT * FRISFROM users;
 
 | SQL | Friska | Description |
 |-----|--------|-------------|
-| CREATE | FRISRATE | Create table |
-| SELECT | FRISLECT | Select data |
-| INSERT | FRISERT | Insert data |
-| UPDATE | FRISDATE | Update data |
-| DELETE | FRISLETE | Delete data |
-| DROP | FRISDROP | Drop table |
-| DESC | FRISC | Describe table |
-| SHOW | FRISSHOW | Show tables |
-| TABLE | FRISKABLE | Table keyword |
-| FROM | FRISFROM | From clause |
-| WHERE | FRISWHERE | Where clause |
-| AND | FRISAND | Logical AND |
-| OR | FRISOR | Logical OR |
+| CREATE | RAYRATE | Create table |
+| SELECT | RAYLECT | Select data |
+| INSERT | RAYERT | Insert data |
+| UPDATE | RAYDATE | Update data |
+| DELETE | RAYLETE | Delete data |
+| DROP | RAYDROP | Drop table |
+| DESC | RAYC | Describe table |
+| SHOW | RAYSHOW | Show tables |
+| TABLE | RAYTABLE | Table keyword |
+| FROM | RAYFROM | From clause |
+| WHERE | RAYWHERE | Where clause |
+| AND | RAYAND | Logical AND |
+| OR | RAYOR | Logical OR |
 
 ### Operators
 
 - **Comparison**: `ABOVE` (>), `BELOW` (<), `ATLEAST` (>=), `ATMOST` (<=)
-- **Special**: `FRISXIST` (NOT NULL), `FRISMISS` (NULL), `FRISLOVE` (LIKE)
-- **Logical**: `FRISAND` (AND), `FRISOR` (OR)
+- **Special**: `RAYXIST` (NOT NULL), `RAYMISS` (NULL), `RAYLOVE` (LIKE)
+- **Logical**: `RAYAND` (AND), `RAYOR` (OR)
 
 ---
 
@@ -170,7 +170,7 @@ friska> FRISLECT * FRISFROM users;
 
 ### Create Table
 ```friska
-FRISRATE FRISKABLE users (
+RAYRATE RAYTABLE users (
     name TEXT,
     age NUMBER,
     email TEXT,
@@ -180,49 +180,49 @@ FRISRATE FRISKABLE users (
 
 ### Insert Data
 ```friska
-FRISERT FRISINTO users (name, age, email, active) 
-FRISVALUES ('Rayhan', 25, 'friska@example.com', true);
+RAYERT RAYINTO users (name, age, email, active) 
+RAYVALUES ('Rayhan', 25, 'friska@example.com', true);
 ```
 
 ### Select Data
 ```friska
 -- All columns
-FRISLECT * FRISFROM users;
+RAYLECT * RAYFROM users;
 
 -- Specific columns
-FRISLECT name, age FRISFROM users;
+RAYLECT name, age RAYFROM users;
 
 -- With conditions
-FRISLECT * FRISFROM users FRISWHERE age ABOVE 18;
+RAYLECT * RAYFROM users RAYWHERE age ABOVE 18;
 
 -- Pattern matching
-FRISLECT * FRISFROM users FRISWHERE email FRISLOVE '%@gmail.com';
+RAYLECT * RAYFROM users RAYWHERE email RAYLOVE '%@gmail.com';
 
 -- Multiple conditions
-FRISLECT * FRISFROM users 
-FRISWHERE age ABOVE 18 FRISAND active FRISXIST;
+RAYLECT * RAYFROM users 
+RAYWHERE age ABOVE 18 RAYAND active RAYXIST;
 ```
 
 ### Update Data
 ```friska
-FRISDATE users FRISSET age = 26 FRISWHERE name = 'Rayhan';
+RAYDATE users RAYSET age = 26 RAYWHERE name = 'Rayhan';
 ```
 
 ### Delete Data
 ```friska
-FRISLETE FRISFROM users FRISWHERE age BELOW 18;
+RAYLETE RAYFROM users RAYWHERE age BELOW 18;
 ```
 
 ### Other Commands
 ```friska
 -- Describe table
-FRISC users;
+RAYC users;
 
 -- Show all tables
-FRISSHOW FRISKABLES;
+RAYSHOW RAYTABLES;
 
 -- Drop table
-FRISDROP FRISKABLE old_users;
+RAYDROP RAYTABLE old_users;
 ```
 
 ---
@@ -273,7 +273,7 @@ db, _ := RayhanDB.Connect("localhost:7171", "admin", "rayhan123")
 defer db.Close()
 
 // Use Friska queries
-rows, _ := db.Query("FRISLECT * FRISFROM products;")
+rows, _ := db.Query("RAYLECT * RAYFROM products;")
 ```
 
 ### Learning Database Concepts

@@ -1,10 +1,10 @@
 package main
 
 import (
-	"bufio"
-	"fmt"
 	"RayhanDB/pkg/core"
 	"RayhanDB/pkg/parser"
+	"bufio"
+	"fmt"
 	"os"
 	"path/filepath"
 	"strings"
@@ -51,7 +51,7 @@ func main() {
 		if inMultiLine {
 			fmt.Print("     -> ")
 		} else {
-			fmt.Print("friska> ")
+			fmt.Print("rayhan> ")
 		}
 
 		if !scanner.Scan() {
@@ -175,42 +175,42 @@ func printHelp() {
 🌟 Friska Query Language Commands:
 
 📝 CREATE TABLE:
-   FRISRATE FRISKABLE table_name (col1 TYPE, col2 TYPE, ...)
-   Example: FRISRATE FRISKABLE users (name TEXT, age NUMBER)
+   RAYRATE RAYTABLE table_name (col1 TYPE, col2 TYPE, ...)
+   Example: RAYRATE RAYTABLE users (name TEXT, age NUMBER)
 
 ➕ INSERT:
-   FRISERT FRISINTO table (col1, col2) FRISVALUES (val1, val2)
-   Example: FRISERT FRISINTO users (name, age) FRISVALUES ('Rayhan', 25)
+   RAYERT RAYINTO table (col1, col2) RAYVALUES (val1, val2)
+   Example: RAYERT RAYINTO users (name, age) RAYVALUES ('Rayhan', 25)
 
 🔍 SELECT:
-   FRISLECT columns FRISFROM table [FRISWHERE condition]
-   Example: FRISLECT * FRISFROM users
-   Example: FRISLECT name FRISFROM users FRISWHERE age ABOVE 18
+   RAYLECT columns RAYFROM table [RAYWHERE condition]
+   Example: RAYLECT * RAYFROM users
+   Example: RAYLECT name RAYFROM users RAYWHERE age ABOVE 18
 
 ✏️ UPDATE:
-   FRISDATE table FRISSET col=val [FRISWHERE condition]
-   Example: FRISDATE users FRISSET age=26 FRISWHERE name='Rayhan'
+   RAYDATE table RAYSET col=val [RAYWHERE condition]
+   Example: RAYDATE users RAYSET age=26 RAYWHERE name='Rayhan'
 
 🗑️ DELETE:
-   FRISLETE FRISFROM table [FRISWHERE condition]
-   Example: FRISLETE FRISFROM users FRISWHERE age BELOW 18
+   RAYLETE RAYFROM table [RAYWHERE condition]
+   Example: RAYLETE RAYFROM users RAYWHERE age BELOW 18
 
 💥 DROP TABLE:
-   FRISDROP FRISKABLE table
-   Example: FRISDROP FRISKABLE old_users
+   RAYDROP RAYTABLE table
+   Example: RAYDROP RAYTABLE old_users
 
 📋 DESCRIBE:
-   FRISC table
-   Example: FRISC users
+   RAYC table
+   Example: RAYC users
 
 📚 SHOW TABLES:
-   FRISSHOW FRISKABLES
+   RAYSHOW RAYTABLES
 
 🎯 Operators:
    =, !=, ABOVE (>), BELOW (<), ATLEAST (>=), ATMOST (<=)
-   FRISLOVE (LIKE), FRISAMONG (IN)
-   FRISXIST (NOT NULL), FRISMISS (NULL)
-   FRISAND (AND), FRISOR (OR)
+   RAYLOVE (LIKE), FRISAMONG (IN)
+   RAYXIST (NOT NULL), RAYMISS (NULL)
+   RAYAND (AND), RAYOR (OR)
 
 💡 Special Commands:
    help  - Show this help
@@ -263,7 +263,7 @@ func printTableSchema(tbl *core.Table) {
 
 func printTableList(tables []string) {
 	if len(tables) == 0 {
-		colorYellow.Println("😅 No tables found! Create one with FRISRATE FRISKABLE.")
+		colorYellow.Println("😅 No tables found! Create one with RAYRATE RAYTABLE.")
 		return
 	}
 

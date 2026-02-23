@@ -164,9 +164,9 @@ func (e *Executor) evaluateCondition(row core.Row, cond *Condition) bool {
 	// Handle logical operators
 	if cond.Next != nil {
 		nextResult := e.evaluateCondition(row, cond.Next)
-		if cond.Logic == "FRISAND" || cond.Logic == "AND" {
+		if cond.Logic == "RAYAND" || cond.Logic == "AND" {
 			return result && nextResult
-		} else if cond.Logic == "FRISOR" || cond.Logic == "OR" {
+		} else if cond.Logic == "RAYOR" || cond.Logic == "OR" {
 			return result || nextResult
 		}
 	}

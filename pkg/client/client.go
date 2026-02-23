@@ -51,7 +51,7 @@ func (c *Client) authenticate(username, password string) error {
 	// Send a dummy query with auth credentials to authenticate
 	req := &protocol.Request{
 		ID:    c.nextRequestID(),
-		Query: "FRISSHOW FRISKABLES;", // Simple query to test auth
+		Query: "RAYSHOW RAYTABLES;", // Simple query to test auth
 		Auth: protocol.Auth{
 			Username: username,
 			Password: password,

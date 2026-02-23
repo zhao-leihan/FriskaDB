@@ -20,34 +20,34 @@ const (
 	TokenBoolean
 
 	// Friska Keywords
-	TokenFrisrate // FRISRATE (CREATE)
-	TokenFrislect // FRISLECT (SELECT)
-	TokenFrisert  // FRISERT (INSERT)
-	TokenFrisdate // FRISDATE (UPDATE)
-	TokenFrislete // FRISLETE (DELETE)
-	TokenFrisdrop // FRISDROP (DROP)
-	TokenFrisc    // FRISC (DESCRIBE)
-	TokenFrisshow // FRISSHOW (SHOW)
+	TokenRAYRATE // RAYRATE (CREATE)
+	TokenRAYLECT // RAYLECT (SELECT)
+	TokenRAYERT  // RAYERT (INSERT)
+	TokenRAYDATE // RAYDATE (UPDATE)
+	TokenRAYLETE // RAYLETE (DELETE)
+	TokenRAYDROP // RAYDROP (DROP)
+	TokenRAYC    // RAYC (DESCRIBE)
+	TokenRAYSHOW // RAYSHOW (SHOW)
 
 	// Friska Clauses
-	TokenFriskable  // FRISKABLE (TABLE)
-	TokenFriskables // FRISKABLES (TABLES)
-	TokenFrisfrom   // FRISFROM (FROM)
-	TokenFriswhere  // FRISWHERE (WHERE)
-	TokenFrisset    // FRISSET (SET)
-	TokenFrisinto   // FRISINTO (INTO)
-	TokenFrisvalues // FRISVALUES (VALUES)
+	TokenRAYTABLE  // RAYTABLE (TABLE)
+	TokenRAYTABLEs // RAYTABLES (TABLES)
+	TokenRAYFROM   // RAYFROM (FROM)
+	TokenRAYWHERE  // RAYWHERE (WHERE)
+	TokenRAYSET    // RAYSET (SET)
+	TokenRAYINTO   // RAYINTO (INTO)
+	TokenRAYVALUES // RAYVALUES (VALUES)
 
 	// Logical Operators
-	TokenFrisand // FRISAND (AND)
-	TokenFrisor  // FRISOR (OR)
-	TokenFrisnot // FRISNOT (NOT)
+	TokenRAYAND // RAYAND (AND)
+	TokenRAYOR  // RAYOR (OR)
+	TokenRaynot // RAYNOT (NOT)
 
 	// Special Operators
-	TokenFrislove  // FRISLOVE (LIKE)
-	TokenFrisamong // FRISAMONG (IN)
-	TokenFrisxist  // FRISXIST (IS NOT NULL)
-	TokenFrismiss  // FRISMISS (IS NULL)
+	TokenRAYLOVE  // RAYLOVE (LIKE)
+	TokenRayamong // RAYAMONG (IN)
+	TokenRAYXIST  // RAYXIST (IS NOT NULL)
+	TokenRAYMISS  // RAYMISS (IS NULL)
 
 	// Comparison Operators
 	TokenAbove   // ABOVE (>)
@@ -257,34 +257,34 @@ func isDigit(ch byte) bool {
 func lookupIdent(ident string) TokenType {
 	keywords := map[string]TokenType{
 		// Core commands
-		"FRISRATE": TokenFrisrate,
-		"FRISLECT": TokenFrislect,
-		"FRISERT":  TokenFrisert,
-		"FRISDATE": TokenFrisdate,
-		"FRISLETE": TokenFrislete,
-		"FRISDROP": TokenFrisdrop,
-		"FRISC":    TokenFrisc,
-		"FRISSHOW": TokenFrisshow,
+		"RAYRATE": TokenRAYRATE,
+		"RAYLECT": TokenRAYLECT,
+		"RAYERT":  TokenRAYERT,
+		"RAYDATE": TokenRAYDATE,
+		"RAYLETE": TokenRAYLETE,
+		"RAYDROP": TokenRAYDROP,
+		"RAYC":    TokenRAYC,
+		"RAYSHOW": TokenRAYSHOW,
 
 		// Clauses
-		"FRISKABLE":  TokenFriskable,
-		"FRISKABLES": TokenFriskables,
-		"FRISFROM":   TokenFrisfrom,
-		"FRISWHERE":  TokenFriswhere,
-		"FRISSET":    TokenFrisset,
-		"FRISINTO":   TokenFrisinto,
-		"FRISVALUES": TokenFrisvalues,
+		"RAYTABLE":  TokenRAYTABLE,
+		"RAYTABLES": TokenRAYTABLEs,
+		"RAYFROM":   TokenRAYFROM,
+		"RAYWHERE":  TokenRAYWHERE,
+		"RAYSET":    TokenRAYSET,
+		"RAYINTO":   TokenRAYINTO,
+		"RAYVALUES": TokenRAYVALUES,
 
 		// Logical
-		"FRISAND": TokenFrisand,
-		"FRISOR":  TokenFrisor,
-		"FRISNOT": TokenFrisnot,
+		"RAYAND": TokenRAYAND,
+		"RAYOR":  TokenRAYOR,
+		"RAYNOT": TokenRaynot,
 
 		// Special operators
-		"FRISLOVE":  TokenFrislove,
-		"FRISAMONG": TokenFrisamong,
-		"FRISXIST":  TokenFrisxist,
-		"FRISMISS":  TokenFrismiss,
+		"RAYLOVE":  TokenRAYLOVE,
+		"RAYAMONG": TokenRayamong,
+		"RAYXIST":  TokenRAYXIST,
+		"RAYMISS":  TokenRAYMISS,
 
 		// Comparison
 		"ABOVE":   TokenAbove,

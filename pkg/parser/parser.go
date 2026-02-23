@@ -1,8 +1,8 @@
 package parser
 
 import (
-	"fmt"
 	"RayhanDB/pkg/core"
+	"fmt"
 	"strconv"
 	"strings"
 )
@@ -70,21 +70,21 @@ func (p *Parser) Parse() (*Query, error) {
 	var err error
 
 	switch p.curToken.Type {
-	case TokenFrisrate:
+	case TokenRAYRATE:
 		query, err = p.parseCreate()
-	case TokenFrislect:
+	case TokenRAYLECT:
 		query, err = p.parseSelect()
-	case TokenFrisert:
+	case TokenRAYERT:
 		query, err = p.parseInsert()
-	case TokenFrisdate:
+	case TokenRAYDATE:
 		query, err = p.parseUpdate()
-	case TokenFrislete:
+	case TokenRAYLETE:
 		query, err = p.parseDelete()
-	case TokenFrisdrop:
+	case TokenRAYDROP:
 		query, err = p.parseDrop()
-	case TokenFrisc:
+	case TokenRAYC:
 		query, err = p.parseDescribe()
-	case TokenFrisshow:
+	case TokenRAYSHOW:
 		query, err = p.parseShowTables()
 	default:
 		return nil, fmt.Errorf("unexpected token: %s", p.curToken.Literal)
@@ -115,13 +115,13 @@ func (p *Parser) expectPeek(t TokenType) bool {
 	return false
 }
 
-// parseCreate parses FRISRATE FRISKABLE table_name (columns...)
+// parseCreate parses RAYRATE RAYTABLE table_name (columns...)
 func (p *Parser) parseCreate() (*Query, error) {
 	query := &Query{Type: QueryCreate}
 
-	// Expect FRISKABLE
-	if !p.expectPeek(TokenFriskable) {
-		return nil, fmt.Errorf("expected FRISKABLE after FRISRATE")
+	// Expect RAYTABLE
+	if !p.expectPeek(TokenRAYTABLE) {
+		return nil, fmt.Errorf("expected RAYTABLE after RAYRATE")
 	}
 
 	// Expect table name
@@ -172,16 +172,16 @@ func (p *Parser) parseColumnDefinitions() []core.Column {
 	return columns
 }
 
-// parseSelect parses FRISLECT columns FRISFROM table [FRISWHERE condition]
+// parseSelect parses RAYLECT columns RAYFROM table [RAYWHERE condition]
 func (p *Parser) parseSelect() (*Query, error) {
 	query := &Query{Type: QuerySelect}
 
 	// Parse columns
 	query.Columns = p.parseColumnList()
 
-	// Expect FRISFROM
-	if !p.expectPeek(TokenFrisfrom) {
-		return nil, fmt.Errorf("expected FRISFROM")
+	// Expect RAYFROM
+	if !p.expectPeek(TokenRAYFROM) {
+		return nil, fmt.Errorf("expected RAYFROM")
 	}
 
 	// Expect table name
@@ -191,7 +191,7 @@ func (p *Parser) parseSelect() (*Query, error) {
 	query.TableName = p.curToken.Literal
 
 	// Optional WHERE clause
-	if p.peekToken.Type == TokenFriswhere {
+	if p.peekToken.Type == TokenRAYWHERE {
 		p.nextToken()
 		cond, err := p.parseCondition()
 		if err != nil {
@@ -226,13 +226,13 @@ func (p *Parser) parseColumnList() []string {
 	return columns
 }
 
-// parseInsert parses FRISERT FRISINTO table (columns) FRISVALUES (values)
+// parseInsert parses RAYERT RAYINTO table (columns) RAYVALUES (values)
 func (p *Parser) parseInsert() (*Query, error) {
 	query := &Query{Type: QueryInsert}
 
-	// Expect FRISINTO
-	if !p.expectPeek(TokenFrisinto) {
-		return nil, fmt.Errorf("expected FRISINTO")
+	// Expect RAYINTO
+	if !p.expectPeek(TokenRAYINTO) {
+		return nil, fmt.Errorf("expected RAYINTO")
 	}
 
 	// Expect table name
@@ -254,9 +254,9 @@ func (p *Parser) parseInsert() (*Query, error) {
 		return nil, fmt.Errorf("expected )")
 	}
 
-	// Expect FRISVALUES
-	if !p.expectPeek(TokenFrisvalues) {
-		return nil, fmt.Errorf("expected FRISVALUES")
+	// Expect RAYVALUES
+	if !p.expectPeek(TokenRAYVALUES) {
+		return nil, fmt.Errorf("expected RAYVALUES")
 	}
 
 	// Expect (
@@ -323,7 +323,7 @@ func (p *Parser) parseValue() interface{} {
 	}
 }
 
-// parseUpdate parses FRISDATE table FRISSET col=val [FRISWHERE condition]
+// parseUpdate parses RAYDATE table RAYSET col=val [RAYWHERE condition]
 func (p *Parser) parseUpdate() (*Query, error) {
 	query := &Query{
 		Type:    QueryUpdate,
@@ -336,9 +336,9 @@ func (p *Parser) parseUpdate() (*Query, error) {
 	}
 	query.TableName = p.curToken.Literal
 
-	// Expect FRISSET
-	if !p.expectPeek(TokenFrisset) {
-		return nil, fmt.Errorf("expected FRISSET")
+	// Expect RAYSET
+	if !p.expectPeek(TokenRAYSET) {
+		return nil, fmt.Errorf("expected RAYSET")
 	}
 
 	// Parse assignments
@@ -362,7 +362,7 @@ func (p *Parser) parseUpdate() (*Query, error) {
 	}
 
 	// Optional WHERE
-	if p.peekToken.Type == TokenFriswhere {
+	if p.peekToken.Type == TokenRAYWHERE {
 		p.nextToken()
 		cond, err := p.parseCondition()
 		if err != nil {
@@ -374,13 +374,13 @@ func (p *Parser) parseUpdate() (*Query, error) {
 	return query, nil
 }
 
-// parseDelete parses FRISLETE FRISFROM table [FRISWHERE condition]
+// parseDelete parses RAYLETE RAYFROM table [RAYWHERE condition]
 func (p *Parser) parseDelete() (*Query, error) {
 	query := &Query{Type: QueryDelete}
 
-	// Expect FRISFROM
-	if !p.expectPeek(TokenFrisfrom) {
-		return nil, fmt.Errorf("expected FRISFROM")
+	// Expect RAYFROM
+	if !p.expectPeek(TokenRAYFROM) {
+		return nil, fmt.Errorf("expected RAYFROM")
 	}
 
 	// Expect table name
@@ -390,7 +390,7 @@ func (p *Parser) parseDelete() (*Query, error) {
 	query.TableName = p.curToken.Literal
 
 	// Optional WHERE
-	if p.peekToken.Type == TokenFriswhere {
+	if p.peekToken.Type == TokenRAYWHERE {
 		p.nextToken()
 		cond, err := p.parseCondition()
 		if err != nil {
@@ -402,13 +402,13 @@ func (p *Parser) parseDelete() (*Query, error) {
 	return query, nil
 }
 
-// parseDrop parses FRISDROP FRISKABLE table
+// parseDrop parses RAYDROP RAYTABLE table
 func (p *Parser) parseDrop() (*Query, error) {
 	query := &Query{Type: QueryDrop}
 
-	// Expect FRISKABLE
-	if !p.expectPeek(TokenFriskable) {
-		return nil, fmt.Errorf("expected FRISKABLE")
+	// Expect RAYTABLE
+	if !p.expectPeek(TokenRAYTABLE) {
+		return nil, fmt.Errorf("expected RAYTABLE")
 	}
 
 	// Expect table name
@@ -420,7 +420,7 @@ func (p *Parser) parseDrop() (*Query, error) {
 	return query, nil
 }
 
-// parseDescribe parses FRISC table
+// parseDescribe parses RAYC table
 func (p *Parser) parseDescribe() (*Query, error) {
 	query := &Query{Type: QueryDescribe}
 
@@ -433,13 +433,13 @@ func (p *Parser) parseDescribe() (*Query, error) {
 	return query, nil
 }
 
-// parseShowTables parses FRISSHOW FRISKABLES
+// parseShowTables parses RAYSHOW RAYTABLES
 func (p *Parser) parseShowTables() (*Query, error) {
 	query := &Query{Type: QueryShowTables}
 
-	// Expect FRISKABLES
-	if !p.expectPeek(TokenFriskables) {
-		return nil, fmt.Errorf("expected FRISKABLES")
+	// Expect RAYTABLES
+	if !p.expectPeek(TokenRAYTABLEs) {
+		return nil, fmt.Errorf("expected RAYTABLES")
 	}
 
 	return query, nil
@@ -462,7 +462,7 @@ func (p *Parser) parseCondition() (*Condition, error) {
 	cond.Value = p.parseValue()
 
 	// Check for logical operator (AND/OR)
-	if p.peekToken.Type == TokenFrisand || p.peekToken.Type == TokenFrisor {
+	if p.peekToken.Type == TokenRAYAND || p.peekToken.Type == TokenRAYOR {
 		p.nextToken()
 		cond.Logic = strings.ToUpper(p.curToken.Literal)
 
@@ -491,13 +491,13 @@ func (p *Parser) getOperator() string {
 		return ">="
 	case TokenLessEq, TokenAtmost:
 		return "<="
-	case TokenFrislove:
+	case TokenRAYLOVE:
 		return "LIKE"
-	case TokenFrisamong:
+	case TokenRayamong:
 		return "IN"
-	case TokenFrisxist:
+	case TokenRAYXIST:
 		return "NOTNULL"
-	case TokenFrismiss:
+	case TokenRAYMISS:
 		return "NULL"
 	default:
 		return p.curToken.Literal

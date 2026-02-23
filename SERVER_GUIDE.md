@@ -67,7 +67,7 @@ func main() {
 
     // Create products table
     db.Exec(`
-        FRISRATE FRISKABLE products (
+        RAYRATE RAYTABLE products (
             id NUMBER,
             name TEXT,
             price NUMBER,
@@ -76,17 +76,17 @@ func main() {
     `)
 
     // Insert products
-    db.Exec(`FRISERT FRISINTO products (id, name, price, stock) 
-             FRISVALUES (1, 'Laptop', 15000000, 10);`)
+    db.Exec(`RAYERT RAYINTO products (id, name, price, stock) 
+             RAYVALUES (1, 'Laptop', 15000000, 10);`)
     
-    db.Exec(`FRISERT FRISINTO products (id, name, price, stock) 
-             FRISVALUES (2, 'Mouse', 250000, 50);`)
+    db.Exec(`RAYERT RAYINTO products (id, name, price, stock) 
+             RAYVALUES (2, 'Mouse', 250000, 50);`)
 
     // Query in-stock products
     rows, _ := db.Query(`
-        FRISLECT name, price, stock 
-        FRISFROM products 
-        FRISWHERE stock ABOVE 0;
+        RAYLECT name, price, stock 
+        RAYFROM products 
+        RAYWHERE stock ABOVE 0;
     `)
 
     for _, row := range rows {
@@ -139,13 +139,13 @@ defer db.Close()
 
 ### Execute Query (SELECT)
 ```go
-rows, err := db.Query("FRISLECT * FRISFROM users;")
+rows, err := db.Query("RAYLECT * RAYFROM users;")
 // Returns: []core.Row
 ```
 
 ### Execute Command (INSERT, UPDATE, DELETE, CREATE, DROP)
 ```go
-msg, err := db.Exec("FRISERT FRISINTO users (name) FRISVALUES ('Alice');")
+msg, err := db.Exec("RAYERT RAYINTO users (name) RAYVALUES ('Alice');")
 // Returns: success message string
 ```
 
@@ -156,31 +156,31 @@ msg, err := db.Exec("FRISERT FRISINTO users (name) FRISVALUES ('Alice');")
 ### Tables
 ```go
 // Create
-db.Exec(`FRISRATE FRISKABLE orders (id NUMBER, total NUMBER);`)
+db.Exec(`RAYRATE RAYTABLE orders (id NUMBER, total NUMBER);`)
 
 // Describe
-db.Query(`FRISC orders;`)
+db.Query(`RAYC orders;`)
 
 // List all
-db.Query(`FRISSHOW FRISKABLES;`)
+db.Query(`RAYSHOW RAYTABLES;`)
 
 // Drop
-db.Exec(`FRISDROP FRISKABLE old_table;`)
+db.Exec(`RAYDROP RAYTABLE old_table;`)
 ```
 
 ### Data Manipulation
 ```go
 // Insert
-db.Exec(`FRISERT FRISINTO orders (id, total) FRISVALUES (1, 150000);`)
+db.Exec(`RAYERT RAYINTO orders (id, total) RAYVALUES (1, 150000);`)
 
 // Update
-db.Exec(`FRISDATE orders FRISSET total=200000 FRISWHERE id=1;`)
+db.Exec(`RAYDATE orders RAYSET total=200000 RAYWHERE id=1;`)
 
 // Delete
-db.Exec(`FRISLETE FRISFROM orders FRISWHERE total BELOW 100000;`)
+db.Exec(`RAYLETE RAYFROM orders RAYWHERE total BELOW 100000;`)
 
 // Select
-rows, _ := db.Query(`FRISLECT * FRISFROM orders;`)
+rows, _ := db.Query(`RAYLECT * RAYFROM orders;`)
 ```
 
 ---
@@ -196,21 +196,21 @@ RayhanDB supports multiple concurrent connections:
 go func() {
     db1, _ := client.Connect("localhost:7171", "admin", "rayhan123")
     defer db1.Close()
-    db1.Exec(`FRISERT FRISINTO logs (msg) FRISVALUES ('Client 1');`)
+    db1.Exec(`RAYERT RAYINTO logs (msg) RAYVALUES ('Client 1');`)
 }()
 
 // Client 2
 go func() {
     db2, _ := client.Connect("localhost:7171", "admin", "rayhan123")
     defer db2.Close()
-    db2.Exec(`FRISERT FRISINTO logs (msg) FRISVALUES ('Client 2');`)
+    db2.Exec(`RAYERT RAYINTO logs (msg) RAYVALUES ('Client 2');`)
 }()
 ```
 
 ### Error Handling
 
 ```go
-msg, err := db.Exec(`FRISERT FRISINTO nonexistent (x) FRISVALUES (1);`)
+msg, err := db.Exec(`RAYERT RAYINTO nonexistent (x) RAYVALUES (1);`)
 if err != nil {
     // Handle error: "query failed: table 'nonexistent' not found 😢"
     fmt.Println(err)

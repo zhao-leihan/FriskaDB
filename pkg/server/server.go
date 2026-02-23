@@ -1,12 +1,12 @@
 package server
 
 import (
-	"bufio"
-	"fmt"
 	"RayhanDB/pkg/auth"
 	"RayhanDB/pkg/core"
 	"RayhanDB/pkg/parser"
 	"RayhanDB/pkg/protocol"
+	"bufio"
+	"fmt"
 	"log"
 	"net"
 	"strings"
@@ -164,8 +164,8 @@ func (s *Server) handleConnection(conn net.Conn) {
 
 // executeQuery executes a Friska query and sends response
 func (s *Server) executeQuery(writer *bufio.Writer, req *protocol.Request) {
-	// Special handling for FRISREGISTER command (user registration)
-	if strings.HasPrefix(strings.TrimSpace(req.Query), "FRISREGISTER") {
+	// Special handling for RAYREGISTER command (user registration)
+	if strings.HasPrefix(strings.TrimSpace(req.Query), "RAYREGISTER") {
 		s.handleRegistration(writer, req)
 		return
 	}
@@ -218,10 +218,10 @@ func (s *Server) executeQuery(writer *bufio.Writer, req *protocol.Request) {
 
 // handleRegistration handles user registration requests
 func (s *Server) handleRegistration(writer *bufio.Writer, req *protocol.Request) {
-	// Parse FRISREGISTER user:username pass:password
+	// Parse RAYREGISTER user:username pass:password
 	parts := strings.Fields(req.Query)
 	if len(parts) != 3 {
-		s.sendError(writer, req.ID, fmt.Errorf("invalid registration format, expected: FRISREGISTER user:username pass:password"))
+		s.sendError(writer, req.ID, fmt.Errorf("invalid registration format, expected: RAYREGISTER user:username pass:password"))
 		return
 	}
 

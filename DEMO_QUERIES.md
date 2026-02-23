@@ -7,7 +7,7 @@ Ini adalah contoh lengkap semua query yang bisa dijalankan di **Rayhan Compass**
 ## 1️⃣ CREATE TABLE - Bikin Tabel
 
 ```sql
-FRISCREATE FRISKABLE products (
+RAYCREATE RAYTABLE products (
     id NUMBER,
     name TEXT,
     price NUMBER,
@@ -23,18 +23,18 @@ FRISCREATE FRISKABLE products (
 ## 2️⃣ INSERT - Masukin Data
 
 ```sql
-FRISERT FRISINTO products (id, name, price, stock, category) 
-FRISVALUES (1, 'Laptop Gaming ROG', 25000000, 3, 'Laptop');
+RAYERT RAYINTO products (id, name, price, stock, category) 
+RAYVALUES (1, 'Laptop Gaming ROG', 25000000, 3, 'Laptop');
 ```
 
 ```sql
-FRISERT FRISINTO products (id, name, price, stock, category) 
-FRISVALUES (2, 'Mouse Logitech G Pro', 450000, 15, 'Accessories');
+RAYERT RAYINTO products (id, name, price, stock, category) 
+RAYVALUES (2, 'Mouse Logitech G Pro', 450000, 15, 'Accessories');
 ```
 
 ```sql
-FRISERT FRISINTO products (id, name, price, stock, category) 
-FRISVALUES (3, 'Monitor LG UltraGear', 5500000, 5, 'Monitor');
+RAYERT RAYINTO products (id, name, price, stock, category) 
+RAYVALUES (3, 'Monitor LG UltraGear', 5500000, 5, 'Monitor');
 ```
 
 **Hasil**: 3 produk berhasil dimasukkan
@@ -44,7 +44,7 @@ FRISVALUES (3, 'Monitor LG UltraGear', 5500000, 5, 'Monitor');
 ## 3️⃣ SELECT - Ambil Semua Data
 
 ```sql
-FRISLECT * FRISFROM products;
+RAYLECT * RAYFROM products;
 ```
 
 **Hasil**: Semua kolom dan semua baris ditampilkan
@@ -55,17 +55,17 @@ FRISLECT * FRISFROM products;
 
 ### Filter by Price (di bawah 1 juta)
 ```sql
-FRISLECT name, price FRISFROM products FRISWHERE price BELOW 1000000;
+RAYLECT name, price RAYFROM products RAYWHERE price BELOW 1000000;
 ```
 
 ### Filter by Category
 ```sql
-FRISLECT * FRISFROM products FRISWHERE category = 'Laptop';
+RAYLECT * RAYFROM products RAYWHERE category = 'Laptop';
 ```
 
 ### Filter by Stock (lebih dari 10)
 ```sql
-FRISLECT name, stock FRISFROM products FRISWHERE stock ABOVE 10;
+RAYLECT name, stock RAYFROM products RAYWHERE stock ABOVE 10;
 ```
 
 **Hasil**: Hanya produk yang sesuai kondisi ditampilkan
@@ -76,12 +76,12 @@ FRISLECT name, stock FRISFROM products FRISWHERE stock ABOVE 10;
 
 ### Update Harga
 ```sql
-FRISDATE products FRISSET price = 400000 FRISWHERE name = 'Mouse Logitech G Pro';
+RAYDATE products RAYSET price = 400000 RAYWHERE name = 'Mouse Logitech G Pro';
 ```
 
 ### Update Stock
 ```sql
-FRISDATE products FRISSET stock = 20 FRISWHERE id = 2;
+RAYDATE products RAYSET stock = 20 RAYWHERE id = 2;
 ```
 
 **Hasil**: Data produk diubah
@@ -92,12 +92,12 @@ FRISDATE products FRISSET stock = 20 FRISWHERE id = 2;
 
 ### Hapus produk tertentu
 ```sql
-FRISLETE FRISFROM products FRISWHERE id = 1;
+RAYLETE RAYFROM products RAYWHERE id = 1;
 ```
 
 ### Hapus produk mahal (di atas 20 juta)
 ```sql
-FRISLETE FRISFROM products FRISWHERE price ABOVE 20000000;
+RAYLETE RAYFROM products RAYWHERE price ABOVE 20000000;
 ```
 
 **Hasil**: Produk yang sesuai kondisi dihapus
@@ -107,7 +107,7 @@ FRISLETE FRISFROM products FRISWHERE price ABOVE 20000000;
 ## 7️⃣ DESCRIBE - Lihat Schema Tabel
 
 ```sql
-FRISC products;
+RAYC products;
 ```
 
 **Hasil**: Informasi kolom tabel (nama, tipe data) ditampilkan
@@ -117,7 +117,7 @@ FRISC products;
 ## 8️⃣ SHOW TABLES - Lihat Semua Tabel
 
 ```sql
-FRISSHOW FRISKABLES;
+RAYSHOW RAYTABLES;
 ```
 
 **Hasil**: List semua tabel di database
