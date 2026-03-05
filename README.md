@@ -120,7 +120,7 @@ func main() {
 
 **Important:** All queries must end with a semicolon `;` for multi-line support!
 
-```friska
+```Rayhan
 rayhan> RAYRATE RAYTABLE users (
      ->     name TEXT,
      ->     age NUMBER
@@ -138,11 +138,11 @@ rayhan> RAYLECT * RAYFROM users;
 
 ---
 
-## 🌟 Friska Query Language
+## 🌟 Rayhan Query Language
 
 ### Keywords Dictionary
 
-| SQL | Friska | Description |
+| SQL | Rayhan | Description |
 |-----|--------|-------------|
 | CREATE | RAYRATE | Create table |
 | SELECT | RAYLECT | Select data |
@@ -169,7 +169,7 @@ rayhan> RAYLECT * RAYFROM users;
 ## 📚 Query Examples
 
 ### Create Table
-```friska
+```rayhan
 RAYRATE RAYTABLE users (
     name TEXT,
     age NUMBER,
@@ -179,13 +179,13 @@ RAYRATE RAYTABLE users (
 ```
 
 ### Insert Data
-```friska
+```rayhan
 RAYERT RAYINTO users (name, age, email, active) 
-RAYVALUES ('Rayhan', 25, 'friska@example.com', true);
+RAYVALUES ('Rayhan', 25, 'rayhan@example.com', true);
 ```
 
 ### Select Data
-```friska
+```rayhan
 -- All columns
 RAYLECT * RAYFROM users;
 
@@ -204,17 +204,17 @@ RAYWHERE age ABOVE 18 RAYAND active RAYXIST;
 ```
 
 ### Update Data
-```friska
+```rayhan
 RAYDATE users RAYSET age = 26 RAYWHERE name = 'Rayhan';
 ```
 
 ### Delete Data
-```friska
+```rayhan
 RAYLETE RAYFROM users RAYWHERE age BELOW 18;
 ```
 
 ### Other Commands
-```friska
+```rayhan
 -- Describe table
 RAYC users;
 
@@ -272,7 +272,7 @@ RayhanDB/
 db, _ := RayhanDB.Connect("localhost:7171", "admin", "rayhan123")
 defer db.Close()
 
-// Use Friska queries
+// Use rayhan queries
 rows, _ := db.Query("RAYLECT * RAYFROM products;")
 ```
 
