@@ -8,7 +8,7 @@ RayhanDB is a lightweight database with a unique query language that uses **FRIS
 
 ## 🚀 Features
 
-- 🎯 **Unique Friska Syntax**: FRIS-prefixed keywords instead of SQL
+- 🎯 **Unique Rayhan Syntax**: Ray-prefixed keywords instead of SQL
 - 🌐 **Server Mode**: TCP server with client-server architecture
 - 📚 **Client Library**: Connect from any Go application
 - 🔒 **Thread-Safe**: Concurrent access support with mutex locks
